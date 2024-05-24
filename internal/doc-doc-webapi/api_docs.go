@@ -51,7 +51,7 @@ func (this *implDocsAPI) addRoutes(routerGroup *gin.RouterGroup) {
   routerGroup.Handle( http.MethodPost, "/doc", this.AddDocument)
   routerGroup.Handle( http.MethodDelete, "/doc/:id", this.DeleteDocument)
   routerGroup.Handle( http.MethodGet, "/doc/:id", this.GetDocumentById)
-  routerGroup.Handle( http.MethodGet, "/doc", this.GetDocuments)
+  routerGroup.Handle( http.MethodGet, "/docs", this.GetDocuments)
   routerGroup.Handle( http.MethodPut, "/doc/:id", this.UpdateDocument)
 }
 

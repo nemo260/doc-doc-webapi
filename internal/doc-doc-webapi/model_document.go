@@ -12,7 +12,7 @@ package doc_doc_webapi
 
 type Document struct {
 
-	Id int64 `json:"id"`
+	Id string `json:"id"`
 
 	Title string `json:"title"`
 
