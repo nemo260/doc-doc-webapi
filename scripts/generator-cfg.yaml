@@ -1,0 +1,8 @@
+generatorName: go-gin-server
+templateDir: /local/scripts/templates
+outputDir: /local
+inputSpec: /local/api/doc-doc-webapi.openapi.yaml
+enablePostProcessFile: true
+additionalProperties:
+  apiPath: internal/doc-doc-webapi
+  packageName: doc_doc_webapi
