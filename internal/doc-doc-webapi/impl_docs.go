@@ -126,7 +126,46 @@ func (this *implDocsAPI) DeleteDocument(ctx *gin.Context) {
 }
 
 func (this *implDocsAPI) GetDocumentById(ctx *gin.Context) {
-	ctx.AbortWithStatus(http.StatusNotImplemented)
+	value, exists := ctx.Get("db_service")
+	if !exists {
+		ctx.JSON(
+			http.StatusInternalServerError,
+			gin.H{
+				"status":  "Internal Server Error",
+				"message": "db not found",
+				"error":   "db not found",
+			})
+		return
+	}
+	db, ok := value.(db_service.DbService[Document])
+	if !ok {
+		ctx.JSON(
+			http.StatusInternalServerError,
+			gin.H{
+				"status":  "Internal Server Error",
+				"message": "db context is not of required type",
+				"error":   "cannot cast db context to db_service.DbService",
+			})
+		return
+	}
+
+	documentId := ctx.Param("id")
+	document, err := db.FindDocument(ctx, documentId)
+	if err != nil {
+		ctx.JSON(
+			http.StatusBadGateway,
+			gin.H{
+				"status":  "Bad Gateway",
+				"message": "Failed to retrieve document from database",
+				"error":   err.Error(),
+			})
+		return
+	}
+
+	ctx.JSON(
+		http.StatusOK,
+		document,
+	)
 }
 
 func (this *implDocsAPI) GetDocuments(ctx *gin.Context) {
