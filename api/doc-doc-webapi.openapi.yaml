@@ -62,8 +62,7 @@ paths:
           description: ID of document to return
           required: true
           schema:
-            type: integer
-            format: int64
+            type: string
       responses:
         '200':
           description: A document
@@ -84,8 +83,7 @@ paths:
           description: ID of document to update
           required: true
           schema:
-            type: integer
-            format: int64
+            type: string
       requestBody:
         description: Document to update
         required: true
@@ -113,8 +111,7 @@ paths:
           description: ID of document to delete
           required: true
           schema:
-            type: integer
-            format: int64
+            type: string
       responses:
         '200':
           description: Document deleted
