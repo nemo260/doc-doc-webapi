@@ -1,0 +1,5 @@
+internal/doc-doc-webapi/api_*
+internal/doc-doc-webapi/model_*
+internal/doc-doc-webapi/routers.go
+build/
+deployments/
