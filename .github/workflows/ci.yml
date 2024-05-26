@@ -32,7 +32,7 @@ jobs:
       with:
         # version: 7.0.0-beta - at time of writing this text only prerelease was available
         generator: go-gin-server
-        input: api/ambulance-wl.openapi.yaml
+        input: api/doc-doc-webapi.openapi.yaml
         additional-properties: apiPath=internal/doc-doc-webapi,packageName=doc_doc_webapi
         template: scripts/templates
 
